@@ -71,3 +71,47 @@ fun ex3NomeInvertido()
 {
     var palavra =
 }
+
+/*
+A - Escreva um código, usando "while( )" ou "do while( )", capaz de receber um texto e imprimi-lo invertido
+          Exemplo de entrada: Meu nome é Asdrúbal
+          Exemplo de saída esperada: labúrdsA é emon ueM
+
+B -  Escreva uma função que recebe uma string, verifica se existe a mesma quantidade de caracteres "x" e "o" e retorna true ou false. Caso não exista nem "x" nem "o", retornar false. Use "while( )" ou "do while( )"
+*/
+
+fun inverterTexto(texto: String): String {
+    var resultado = ""
+    var i = texto.length - 1
+
+    while (i >= 0) {
+        resultado += texto[i]
+        i--
+    }
+
+    return resultado
+}
+
+fun verificarXEO(texto: String): Boolean {
+    var countX = 0
+    var countO = 0
+    var i = 0
+
+    while (i < texto.length) {
+        when (texto[i]) {
+            'x' -> countX++
+            'o' -> countO++
+        }
+        i++
+    }
+
+    return (countX == countO) && (countX > 0 || countO > 0)
+}
+
+fun main() {
+    val texto = "Meu nome é Renan"
+    val textoInvertido = inverterTexto(texto)
+    println("Texto invertido: $textoInvertido")
+    val resultado = verificarXEO(texto)
+    println("Quantidade de 'x' e 'o' é igual? $resultado")
+}
